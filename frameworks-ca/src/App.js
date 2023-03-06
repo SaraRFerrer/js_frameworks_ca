@@ -5,15 +5,18 @@ import Home from './pages/home';
 import Contact from './pages/contact';
 import RouteNotFound from './pages/notFound';
 import { Routes, Route } from 'react-router-dom';
-import Header from './components/header';
+
 
 
 function App() {
   return (
-    <div>
-      <Header />
-    
-    </div>
+  <Routes>
+    <Route path="/" element={<Layout />}>
+      <Route index element={<Home />} />
+      <Route path="contact" element={<Contact />} />
+      <Route path="*" element={<RouteNotFound />} />
+    </Route>
+  </Routes>
     
   );
 }
