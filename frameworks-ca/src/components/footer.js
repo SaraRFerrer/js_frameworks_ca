@@ -1,7 +1,9 @@
 import React from "react";
 
 function Footer() {
-    return <footer>Footer goes Here</footer>;
+    return <footer>
+      <h3>all Copyright © belongs to (..)</h3>
+      </footer>;
   }
 
 
