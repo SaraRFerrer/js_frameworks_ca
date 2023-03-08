@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import ProductCard from "../components/productCard";
 import ApiHook from "../hooks/apiHook";
+import styles from "../styleModules/grid.module.css"
 
 const url = 'https://api.noroff.dev/api/v1/online-shop';
 
@@ -12,7 +13,7 @@ function Products ({ products, isLoading, isError}) {
     return <div>An error has accured</div>
   }
   return (
-    <div className="Grid">
+    <div className={styles.Grid}>
       {products.map((product) => (
         <ProductCard key={products.id} product={product} />
       ))}
@@ -26,9 +27,28 @@ function Home() {
     console.log(data)
   }
 
+  const [search, setSearch] = useState("");
+  const handleSearch = (event) => {
+    setSearch(event.target.value);
+  }
+
+  const filter = data.filter((product) => {
+    return product.title.toLowerCase().includes(search.toLowerCase())
+  });
+
   return (
     <div>
-      <h1 className="Home--header">All Products</h1>
+      <h1 className={styles.Homeheader}>All Products</h1>
+      <div className="search-container">
+        <form action="">
+            <input 
+              className="searchbar" 
+              type="text" 
+              placeholder="Search products..." 
+              value={search}
+              onChange={handleSearch} />
+        </form>
+      </div>
       <div>
         <Products products={data} isLoading={isLoading} isError={isError}/>
       </div>
