@@ -26,7 +26,7 @@ function Nav() {
     return (
       <header>
         <div>
-          <h3>Welcome too (..)</h3>
+          <h3>TechCom@</h3>
         </div>
         <Nav />
       </header>

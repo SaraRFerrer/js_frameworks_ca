@@ -1,0 +1,22 @@
+@import "~bootstrap/scss/bootstrap";
+@import "custom.scss";
+
+
+
+.btn {
+    background-color: $secondary;
+}
+
+Form {
+    width: 60%;
+    box-shadow: 10px 10px 52px 0px rgba(153,150,153,0.18);
+    display: inline-block;
+    border: 1px solid rgb(170, 169, 169);
+  
+}
+
+Form.Control {
+    width: 50%;
+}
+
+
