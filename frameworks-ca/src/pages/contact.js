@@ -1,100 +1,108 @@
 import React from "react";
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
 import * as yup from 'yup';
-import { Formik } from "formik";
+import styles from "../styleModules/contact.module.css";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 
 
-const schema = yup
-.object().shape({
-  fullName: yup.string().min(3).required(),
-  email: yup.string().required(),
-  subject: yup.string().min(3).required(),
-  message: yup.string().min(3).required(),
+const schema = yup.object().shape({
+  fullName: yup.string().min(3).required("Fill in your full name"),
+  email: yup.string().required("Valid email is required"),
+  subject: yup.string().min(3).required("Fill in your subject"),
+  message: yup.string().min(3).required( "Write your message here"),
 
 })
 
 function Contact() {
+  const initialValues = { fullName: "", email: "", subject: "", message: ""};
 
   return (
     <Formik
     validationSchema = {schema}
     onSubmit= {console.log}
-    initialValues= {{
-      fullName: '',
-      email: '',
-      subject: '',
-      message: '',
-    }}
+    initialValues=  { initialValues }
     >
-      {(
+      {(formik) => {
+        const {
       handleSubmit,
       HandleChange,
       values,
       touched,
-      isValid,
       errors,
-      ) => (
+      } = formik
+      return (
 
     
     <div>
-      <h1>Contact Us </h1>
-      <div className="contact--form">
-        <Form onSubmit={handleSubmit}>
-          <Form.Group className="mb-3" controlId="validationFormikFullname">
-              <Form.Label>Full Name</Form.Label>
-              <Form.Control 
-              type="text" 
-              name="fullName"
-              value={values.fullName} 
-              placeholder="Enter your full name"  
-              onChange={HandleChange} 
-              isValid={touched.fullName && !errors.fullName}/>
+      <div className={styles.headerContainer}>
+        <h1 className={styles.contactHeader}>Contact Us</h1>
+        <p className={styles.headerP}>Fill in the form to contact us</p>
+      </div>
+      <div className={styles.contacForm}>
+        <Form onSubmit={handleSubmit} className={styles.form}>
+          <div className={styles.wrap}>
+              <label>Full Name</label>
+              <Field className={styles.input}
+                type="text" 
+                name="fullName"
+                value={values.fullName} 
+                placeholder="Enter your full name"  
+                onChange={HandleChange} 
+                className={errors.fullName && touched.fullName ? 
+                  "input-error" : null} 
+                />
+                <ErrorMessage name="fullName" component="span" className="error" />
+            </div>
               
-            </Form.Group>
-          <Form.Group className="mb-3" controlId="validationFormikEmail">
-            <Form.Label>Email address</Form.Label>
-            <Form.Control 
-            type="text" 
-            name="email"
-            value={values.email} placeholder="Enter email"  
-            onChange={HandleChange} 
-            isValid={touched.email && !errors.email}/>
-            <p>{errors.email?.message}</p>
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="validationFormikSubject">
-            <Form.Label>Your Subject</Form.Label>
-            <Form.Control 
-            type="text" value={values.subject} 
-            name="subject"
-            placeholder="Your Subject"  
-            onChange={HandleChange} 
-            isValid={touched.subject && !errors.subject}/>
-            <p>{errors.subject?.message}</p>
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="validationFormikMessage">
-            <Form.Label>Your Message</Form.Label>
-            <Form.Control 
-            type="text" as="textarea" 
-            name="message"
-            rows={3} 
-            value={values.message} 
-            placeholder="Enter your message"  
-            onChange={HandleChange} 
-            isValid={touched.message && !errors.message}/>
-            <p>{errors.message?.message}</p>
-          </Form.Group>
+            <div>
+              <label>Email</label>
+              <Field className={styles.input}
+                type="email" 
+                name="email"
+                value={values.fullName} 
+                placeholder="Enter your Email"  
+                onChange={HandleChange} 
+                className={errors.email && touched.email ? 
+                  "input-error" : null} 
+                />
+                <ErrorMessage name="email" component="span" className="error" />
+            </div>
+            <div>
+              <label>Your subject</label>
+              <Field className={styles.input}
+                type="text" 
+                name="subject"
+                value={values.subject} 
+                placeholder="Enter your full name"  
+                onChange={HandleChange} 
+                className={errors.subject && touched.subject ? 
+                  "input-error" : null} 
+                />
+                <ErrorMessage name="subject" component="span" className="error" />
+            </div>
+            <div>
+              <label>Message</label>
+              <Field className={styles.message}
+                type="text" 
+                name="message"
+                value={values.message} 
+                placeholder="Enter your full name"  
+                onChange={HandleChange} 
+                className={errors.message && touched.message ? 
+                  "input-error" : null} 
+                />
+                <ErrorMessage name="message" component="span" className="error" />
+            </div>
           
-          <Button variant="primary" type="submit">
-          Submit
-        </Button>
+          
+          <button type="submit" className={styles.formBtn}>Submit</button>
         </Form>
       </div>
     </div>
-      )}
+      );
+      }}
     </Formik>
   );
-}
+};
   
 
 export default Contact;
