@@ -1,24 +1,9 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import SingleProductCard from "../components/singleProductCard";
 import ApiHook from "../hooks/apiHook";
 import { Link } from "react-router-dom";
+import styles from "../styleModules/product.module.css"
 
-function Product ({ product, isLoading, isError}) {
-    if (isLoading) {
-      return <div>Loading...</div>
-    }
-    if (isError) {
-      return <div>An error has accured</div>
-    }
-    return (
-      <div>
-       
-          <SingleProductCard key={product.id} product={product} />
-       
-      </div>
-    )
-  }
 
 function ProductPage() {
     const params = useParams();
@@ -33,18 +18,18 @@ function ProductPage() {
     }
 
     return (
-      <div>
-        <div>
+      <div className={styles.container}>
+        <div >
            <h2>{data.title}</h2>
         </div>
         <div>
                     
-          <img src={data.imageUrl} alt={data.title} />
-          <p>{data.description}</p>
-          <p>Price: {data.price === data.discountedPrice? `kr ${data.price}`: `kr ${data.discountedPrice}, save kr ${price - discountedPrice}`}</p>
+          <img src={data.imageUrl} alt={data.title} className={styles.productImg} />
+          <p className={styles.description}>{data.description}</p>
+          <p className={styles.price}>Price: {data.price === data.discountedPrice? `${data.price} kr `: `kr ${data.discountedPrice},  ${price - discountedPrice} save kr`}</p>
         </div>
-        <div>
-          {data.rating ? <p>Rating: {data.rating}</p> : ""}
+        <div className={styles.rating}>
+          {data.rating ? <p>Average Rating: {data.rating}</p> : ""}
         </div>
         <section>
           <h3>Reviews:</h3>
@@ -54,16 +39,16 @@ function ProductPage() {
                   <div>
                     <p>{review.username}</p>
                     <p>Rating: {review.rating}</p>
-                    <p>{review.description}</p>
+                    <p>"{review.description}"</p>
                   </div>
                   );
                   })}
                   </div> : ""}
           </section>
-                <div>
-                    <Link to={`/cart/${id}`}>Add to cart</Link>
+                <div className={styles.btnContainer} >
+                    <Link to={`/cart/${id}`} className={styles.btn}>Add to cart </Link>
                 </div>
-            </div>        
+      </div>        
     )  
 }
 

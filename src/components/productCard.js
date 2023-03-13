@@ -10,7 +10,7 @@ function ProductCard ({product}){
             <img src={imageUrl} alt={title} className={styles.Productimg}/>
             <div>
                 
-                <p className={styles.Productprice}>Price: {price === discountedPrice? `kr ${price}`: `kr ${discountedPrice}, save kr ${price - discountedPrice}`}</p>
+                <p className={styles.Productprice}>Price: {price === discountedPrice? ` ${price} kr`: ` ${discountedPrice}, save kr ${price - discountedPrice} `}</p>
                 <Link to={`product/${id}`} className={styles.Productlink}>View Product</Link>
 
             </div>
