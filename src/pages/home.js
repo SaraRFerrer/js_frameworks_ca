@@ -2,6 +2,7 @@ import React from "react";
 import ProductCard from "../components/productCard";
 import ApiHook from "../hooks/apiHook";
 import styles from "../styleModules/grid.module.css"
+import { Search } from "../components/search"
 
 
 const url = 'https://api.noroff.dev/api/v1/online-shop';
