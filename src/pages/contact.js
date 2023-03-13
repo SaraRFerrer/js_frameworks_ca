@@ -5,9 +5,9 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 
 
 const schema = yup.object().shape({
-  fullName: yup.string().min(3).required("Fill in your full name"),
+  fullName: yup.string().min(3).required("Enter your full name"),
   email: yup.string().required("Valid email is required"),
-  subject: yup.string().min(3).required("Fill in your subject"),
+  subject: yup.string().min(3).required("Enter your subject"),
   message: yup.string().min(3).required( "Write your message here"),
 
 })
@@ -47,8 +47,6 @@ function Contact() {
                 value={values.fullName} 
                 placeholder="Enter your full name"  
                 onChange={HandleChange} 
-                className={errors.fullName && touched.fullName ? 
-                  "input-error" : null} 
                 />
                 <ErrorMessage name="fullName" component="span" className="error" />
             </div>
@@ -61,8 +59,6 @@ function Contact() {
                 value={values.fullName} 
                 placeholder="Enter your Email"  
                 onChange={HandleChange} 
-                className={errors.email && touched.email ? 
-                  "input-error" : null} 
                 />
                 <ErrorMessage name="email" component="span" className="error" />
             </div>
@@ -74,8 +70,6 @@ function Contact() {
                 value={values.subject} 
                 placeholder="Enter your full name"  
                 onChange={HandleChange} 
-                className={errors.subject && touched.subject ? 
-                  "input-error" : null} 
                 />
                 <ErrorMessage name="subject" component="span" className="error" />
             </div>
@@ -87,8 +81,6 @@ function Contact() {
                 value={values.message} 
                 placeholder="Enter your full name"  
                 onChange={HandleChange} 
-                className={errors.message && touched.message ? 
-                  "input-error" : null} 
                 />
                 <ErrorMessage name="message" component="span" className="error" />
             </div>

@@ -6,13 +6,14 @@ function SingleProductCard({product}) {
     
 
     return (
-        <main>
+        
             <div>
                 <div>
-                    <img src={imageUrl} alt={title} />
+                    <h2>{title}</h2>
                 </div>
                 <div>
-                    <h2>{title}</h2>
+                    
+                    <img src={imageUrl} alt={title} />
                     <p>{description}</p>
                     <p>Price: {price === discountedPrice? `kr ${price}`: `kr ${discountedPrice}, save kr ${price - discountedPrice}`}</p>
                 </div>
@@ -37,7 +38,7 @@ function SingleProductCard({product}) {
                     <Link to={`/cart/${id}`}>Add to cart</Link>
                 </div>
             </div>
-        </main>
+        
             
     )
 

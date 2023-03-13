@@ -27,28 +27,11 @@ function Home() {
     console.log(data)
   }
 
-  const [search, setSearch] = useState("");
-  const handleSearch = (event) => {
-    setSearch(event.target.value);
-  }
-
-  const filter = data.filter((product) => {
-    return product.title.toLowerCase().includes(search.toLowerCase())
-  });
 
   return (
     <div>
       <h1 className={styles.Homeheader}>All Products</h1>
-      <div className="search-container">
-        <form action="">
-            <input 
-              className="searchbar" 
-              type="text" 
-              placeholder="Search products..." 
-              value={search}
-              onChange={handleSearch} />
-        </form>
-      </div>
+      
       <div>
         <Products products={data} isLoading={isLoading} isError={isError}/>
       </div>

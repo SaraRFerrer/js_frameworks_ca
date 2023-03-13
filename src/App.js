@@ -8,7 +8,7 @@ import Contact from './pages/contact';
 import RouteNotFound from './pages/notFound';
 import { Routes, Route } from 'react-router-dom';
 import Cart from './pages/cart';
-import Productpage from './pages/product';
+import ProductPage from './pages/product';
 
 
 function App() {
@@ -18,7 +18,7 @@ function App() {
       <Route index element={<Home />} />
       <Route path="contact" element={<Contact />} />
       <Route path="cart" element={<Cart />} />
-      <Route path="product/:id" element={<Productpage />} />
+      <Route path="product/:id" element={<ProductPage />} />
       <Route path="*" element={<RouteNotFound />} />
     </Route>
   </Routes>

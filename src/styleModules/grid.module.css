@@ -61,3 +61,14 @@
     margin-top: 50px;
     margin-bottom: 50px;
   }
+
+  .searchbar {
+    margin: 0 auto;
+    display: block;
+    align-items: center;
+  }
+  
+  .searchbar input {
+    width: 100%;
+    padding: 12px 24px;
+  }
