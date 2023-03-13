@@ -1,7 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import ProductCard from "../components/productCard";
 import ApiHook from "../hooks/apiHook";
 import styles from "../styleModules/grid.module.css"
+<<<<<<< HEAD
+//import Search from "../components/search"
+=======
+import { Search } from "../components/search"
+>>>>>>> a30197f58ff9e692bdfc5c8efe1921471913088c
 
 const url = 'https://api.noroff.dev/api/v1/online-shop';
 
@@ -31,7 +36,7 @@ function Home() {
   return (
     <div>
       <h1 className={styles.Homeheader}>All Products</h1>
-      
+   
       <div>
         <Products products={data} isLoading={isLoading} isError={isError}/>
       </div>

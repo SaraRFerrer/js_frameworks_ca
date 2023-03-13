@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom"
+import styles from "../styleModules/singleProductCard.module.css"
 
 function SingleProductCard({product}) {
     const { id, title, description, price, discountedPrice, imageUrl, rating, reviews } = product;
@@ -7,7 +8,7 @@ function SingleProductCard({product}) {
 
     return (
         
-            <div>
+            <div className={styles.cardContainer}>
                 <div>
                     <h2>{title}</h2>
                 </div>

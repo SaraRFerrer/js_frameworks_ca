@@ -24,10 +24,7 @@ function Contact() {
       {(formik) => {
         const {
       handleSubmit,
-      HandleChange,
       values,
-      touched,
-      errors,
       } = formik
       return (
 
@@ -44,9 +41,9 @@ function Contact() {
               <Field className={styles.input}
                 type="text" 
                 name="fullName"
-                value={values.fullName} 
                 placeholder="Enter your full name"  
-                onChange={HandleChange} 
+                defaultValue={values.fullName}
+                
                 />
                 <ErrorMessage name="fullName" component="span" className="error" />
             </div>
@@ -56,9 +53,9 @@ function Contact() {
               <Field className={styles.input}
                 type="email" 
                 name="email"
-                value={values.fullName} 
-                placeholder="Enter your Email"  
-                onChange={HandleChange} 
+                placeholder="Enter your Email"
+                defaultValue={values.email}  
+                
                 />
                 <ErrorMessage name="email" component="span" className="error" />
             </div>
@@ -67,9 +64,9 @@ function Contact() {
               <Field className={styles.input}
                 type="text" 
                 name="subject"
-                value={values.subject} 
-                placeholder="Enter your full name"  
-                onChange={HandleChange} 
+                placeholder="Enter your full name"
+                defaultValue={values.subject}  
+                
                 />
                 <ErrorMessage name="subject" component="span" className="error" />
             </div>
@@ -78,9 +75,9 @@ function Contact() {
               <Field className={styles.message}
                 type="text" 
                 name="message"
-                value={values.message} 
-                placeholder="Enter your full name"  
-                onChange={HandleChange} 
+                placeholder="Enter your full name"
+                defaultValue={values.message}  
+                
                 />
                 <ErrorMessage name="message" component="span" className="error" />
             </div>

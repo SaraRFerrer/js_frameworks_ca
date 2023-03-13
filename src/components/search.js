@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+/*import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux"
-import ProductCard from "../../components/ProductCard";
+import ProductCard from "./productCard"
 import ApiHook from "../hooks/apiHook";
 
 function Search() {
@@ -33,3 +33,5 @@ function Search() {
       </div>
     )
 }
+export default Search
+*/

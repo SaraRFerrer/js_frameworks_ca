@@ -78,12 +78,3 @@ footer h3 {
 
 
 
-.searchbar {
-  margin: 0 auto;
-  display: block;
-  align-items: center;
-}
-
-.searchbar input {
-  width: 50%;
-}
