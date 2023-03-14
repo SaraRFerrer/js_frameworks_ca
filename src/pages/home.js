@@ -3,12 +3,7 @@ import ProductCard from "../components/productCard";
 import ApiHook from "../hooks/apiHook";
 import styles from "../styleModules/grid.module.css";
 
-
-
-
-
 const url = 'https://api.noroff.dev/api/v1/online-shop';
-
 function Products ({ products, isLoading, isError}) {
   
   if (isLoading) {
@@ -35,7 +30,7 @@ function Home() {
   }
 
   const query = data.filter((product) => {
-    return product.title.toLowerCase().includes(search.toLowerCase());
+    return product.title.toLowerCase().startsWith(search.toLowerCase());
   });
 
   return (
@@ -52,13 +47,10 @@ function Home() {
          </div>
       <div>
         {query.length > 0 ? (
-          query.map((item) => {
-            return (<Products products={data} isLoading={isLoading} isError={isError}/>);
-          }) 
+          <Products products={query} isLoading={isLoading} isError={isError}/>
         ) : (
           <div>Nothing Found</div>
-        )
-        }
+        )}
       </div>
     </div>
   );
