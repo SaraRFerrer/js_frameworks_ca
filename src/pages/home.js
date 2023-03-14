@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import ProductCard from "../components/productCard";
 import ApiHook from "../hooks/apiHook";
-import styles from "../styleModules/grid.module.css"
+import styles from "../styleModules/grid.module.css";
+
+
 
 
 
 const url = 'https://api.noroff.dev/api/v1/online-shop';
 
 function Products ({ products, isLoading, isError}) {
+  
   if (isLoading) {
     return <div>Loading...</div>
   }
@@ -24,18 +27,38 @@ function Products ({ products, isLoading, isError}) {
 }
 
 function Home() {
+  const [search, setSearch] = useState("");
+
   const {data, isLoading, isError} = ApiHook(url);
   if(!isLoading) {
     console.log(data)
   }
 
+  const query = data.filter((product) => {
+    return product.title.toLowerCase().includes(search.toLowerCase());
+  });
 
   return (
     <div>
       <h1 className={styles.Homeheader}>All Products</h1>
-   
+      <div className={styles.searchContainer}>
+            <input 
+              className="searchbar" 
+              type="text" 
+              placeholder="Search products..." 
+              disabled={isLoading}
+              value={search}
+              onChange={(e) => setSearch(e.target.value)} />
+         </div>
       <div>
-        <Products products={data} isLoading={isLoading} isError={isError}/>
+        {query.length > 0 ? (
+          query.map((item) => {
+            return (<Products products={data} isLoading={isLoading} isError={isError}/>);
+          }) 
+        ) : (
+          <div>Nothing Found</div>
+        )
+        }
       </div>
     </div>
   );
