@@ -30,7 +30,7 @@ function Search() {
               disabled={isLoading}
               value={query}
               onChange={onInputQuery} />
-      </div>
+         </div>
     )
 }
 export default Search
