@@ -1,14 +1,18 @@
-import React from "react";
+import React, {useContext} from "react";
 import { useParams } from "react-router-dom";
 import ApiHook from "../hooks/apiHook";
-import { Link } from "react-router-dom";
 import styles from "../styleModules/product.module.css"
+import { CartContext } from "../components/cart";
 
 
 function ProductPage() {
     const params = useParams();
     let url = `https://api.noroff.dev/api/v1/online-shop/`;
-    const { data, isLoading, isError, id, price, discountedPrice } = ApiHook(url + params.id );
+    const { data, isLoading, isError, price, discountedPrice } = ApiHook(url + params.id );
+
+    const { addToCart } = useContext(CartContext);
+
+
     if(isLoading) {
         return <div>Loading...</div>
       }
@@ -44,10 +48,16 @@ function ProductPage() {
                   );
                   })}
                   </div> : ""}
+                  <button className={styles.btn}
+                  onClick={() => {
+                    addToCart(data);
+
+                  }}>
+                    Add to cart
+
+                  </button>
           </section>
-                <div className={styles.btnContainer} >
-                    <Link to={`/cart/${id}`} className={styles.btn}>Add to cart </Link>
-                </div>
+                
       </div>        
     )  
 }

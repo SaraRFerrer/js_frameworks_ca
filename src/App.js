@@ -7,7 +7,7 @@ import Home from './pages/home';
 import Contact from './pages/contact';
 import RouteNotFound from './pages/notFound';
 import { Routes, Route } from 'react-router-dom';
-import Cart from './pages/cart';
+import Cart from './pages/cart/cart';
 import ProductPage from './pages/product';
 
 
