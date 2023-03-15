@@ -2,7 +2,7 @@ import React, {useContext} from "react";
 import { useParams } from "react-router-dom";
 import ApiHook from "../hooks/apiHook";
 import styles from "../styleModules/product.module.css"
-import { CartContext } from "../components/cart";
+import { CartContext } from "../context/cart";
 
 
 function ProductPage() {
