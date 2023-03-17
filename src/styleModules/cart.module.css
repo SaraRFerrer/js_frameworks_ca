@@ -25,9 +25,11 @@
     }
 }
   
-  .item img {
+  .itemImg {
     width: 150px;
     border-radius: 25px;
+    min-height: 195px;
+    border: 1px solid black;
   }
 
   .title {
@@ -68,4 +70,12 @@
   top: 0;
   right: 0;
   
+}
+
+.content {
+  text-align: center;
+}
+
+.heading {
+  margin-top: 50px;
 }
