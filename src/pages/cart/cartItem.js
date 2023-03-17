@@ -1,6 +1,7 @@
 import { CartContext } from "../../context/cart";
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import styles from "../../styleModules/cart.module.css";
 
 function CartItem() {
     const { cart } = useContext(CartContext);
@@ -14,30 +15,39 @@ function CartItem() {
         return total.toFixed(2);
     }
 
+    const { addToCart } = useContext(CartContext);
+
     console.log(cart);
 
     return (
-        <div>
+        <div className={styles.cart}>
             <h1>Your Cart</h1>
-            <div>
+            <div className={styles.cart}>
                 {cart.map((item) => {
                     return (
-                        <div key={item.id}>
+                        <div key={item.id} className={styles.item}>
                             <div>
                                 <img src={item.imageUrl} alt={item.title} />
                             </div>
                             <div>
-                                <p>{item.title}</p>
-                                <p>{item.id}</p>
+                                <h3 className={styles.title}>{item.title} </h3>
+                                
+                                <p className={styles.price}>Price: {item.price}</p>
+                          
+                               
                             </div>
-                            <div>
+                           
+                            <div className={styles.count}>
                                 <button>-</button>
-                                <p>0</p>
-                                <button>+</button>
+                                <input className={styles.input}
+                                value={item.length}
+                                
+                                />
+                                <button  onClick={() => {
+                                 addToCart(item);
+                                }}>+</button>
                             </div>
-                            <div>
-                                <p>{item.price}</p>
-                            </div>
+                            
                         </div>
                     );
                 })}
@@ -46,8 +56,8 @@ function CartItem() {
                 <h2>Your Subtotal:</h2>
                 <p>{summeryCart(cart)}kr</p>
             </div>
-            <Link to={"/checkout"}>
-                <button>Checkout</button>
+            <Link to="/checkout">
+                <button className={styles.checkoutBtn}>Checkout</button>
             </Link>
         </div>
     )

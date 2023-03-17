@@ -1,0 +1,26 @@
+
+.checkout {
+    text-align: center;
+}
+
+.shoppingBtn {
+    padding: 10px 20px 10px 20px;
+    background-color: gray;
+    color: white;
+    border: none;
+    margin-top: 20px;
+}
+
+.shoppingBtn:hover {
+    background-color: rgba(128, 128, 128, 0.507);
+}
+
+.check{
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 30px;
+}
+
+.title {
+    margin: 20px 0px 20px 0px;
+}

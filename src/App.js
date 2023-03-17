@@ -9,6 +9,7 @@ import RouteNotFound from './pages/notFound';
 import { Routes, Route } from 'react-router-dom';
 import Cart from './pages/cart/cart';
 import ProductPage from './pages/product';
+import Checkout from './pages/checkout';
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
       <Route index element={<Home />} />
       <Route path="contact" element={<Contact />} />
       <Route path="cart" element={<Cart />} />
+      <Route path="checkout" element={<Checkout />} />
       <Route path="product/:id" element={<ProductPage />} />
       <Route path="*" element={<RouteNotFound />} />
     </Route>

@@ -13,7 +13,7 @@ function Nav() {
             <Link to="/contact">Contact</Link>
           </li>
           <li>
-            <Link to="./cart"><button><img src="./cart.png" alt="" className="nav--img"/></button></Link>
+            <Link to="cart"><button><img src="/cart.png" alt="" className="nav--img"/></button></Link>
             
           </li>
           

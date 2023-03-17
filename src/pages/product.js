@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import ApiHook from "../hooks/apiHook";
 import styles from "../styleModules/product.module.css"
 import { CartContext } from "../context/cart";
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 
 function ProductPage() {
@@ -20,6 +22,14 @@ function ProductPage() {
     if (isError) {
       return <div>An error has accured</div>
     }
+
+   const alert = () => {
+    toast.success('An item has been added to your cart !', {
+      position: toast.POSITION.TOP_RIGHT
+    });
+   };
+
+    
 
     return (
       <div className={styles.container}>
@@ -51,11 +61,16 @@ function ProductPage() {
                   <button className={styles.btn}
                   onClick={() => {
                     addToCart(data);
+                    alert();
 
                   }}>
                     Add to cart
 
                   </button>
+                  <ToastContainer 
+                  position="top-right"
+                  autoClose={5000}
+                  />
           </section>
                 
       </div>        
