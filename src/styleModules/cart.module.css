@@ -15,6 +15,7 @@
     box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
     border-radius: 25px;
     margin: 30px;
+    position: relative;
   }
 
 
@@ -53,4 +54,18 @@
 
 .checkoutBtn:hover {
     background-color: rgba(128, 128, 128, 0.507);
+}
+
+.trashBtn img {
+  width: 50px;
+  
+}
+
+.trashBtn {
+  border: none;
+  background-color: transparent;
+  position: absolute;
+  top: 0;
+  right: 0;
+  
 }

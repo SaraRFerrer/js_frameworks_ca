@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import styles from "../../styleModules/cart.module.css";
 
 function CartItem() {
-    const { cart } = useContext(CartContext);
+    const { cart, removeFromCart } = useContext(CartContext);
 
     function summeryCart(cart) {
         let total = 0;
@@ -15,7 +15,9 @@ function CartItem() {
         return total.toFixed(2);
     }
 
-    const { addToCart } = useContext(CartContext);
+    const handleRemoveItem = (itemId) => {
+        removeFromCart(itemId);
+      };
 
     console.log(cart);
 
@@ -31,22 +33,14 @@ function CartItem() {
                             </div>
                             <div>
                                 <h3 className={styles.title}>{item.title} </h3>
-                                
                                 <p className={styles.price}>Price: {item.price}</p>
-                          
-                               
                             </div>
+                            <button className={styles.trashBtn}
+                            onClick={ () => handleRemoveItem(item.id)}
+                            >
+                            <img src="/trash.png" alt="" 
+                            /></button>
                            
-                            <div className={styles.count}>
-                                <button>-</button>
-                                <input className={styles.input}
-                                value={item.length}
-                                
-                                />
-                                <button  onClick={() => {
-                                 addToCart(item);
-                                }}>+</button>
-                            </div>
                             
                         </div>
                     );
