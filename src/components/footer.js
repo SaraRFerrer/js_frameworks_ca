@@ -1,11 +1,11 @@
 import React from "react";
 
 function Footer() {
-    return <footer>
+  return (
+    <footer>
       <h3>all Copyright © belongs to TechCom@</h3>
-      </footer>;
-  }
-
-
+    </footer>
+  );
+}
 
 export default Footer;
