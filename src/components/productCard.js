@@ -6,8 +6,18 @@ function ProductCard({ product }) {
   const { id, title, imageUrl, price, discountedPrice } = product;
   return (
     <div className={styles.Productcard}>
+      <div className={styles.imgContainer}>
+        <img src={imageUrl} alt={title} className={styles.Productimg} />
+        {price === discountedPrice ? (
+          ""
+        ) : (
+          <div className={styles.discountBanner}>
+            Sale {Math.round(((price - discountedPrice) / price) * 100)}%
+          </div>
+        )}
+      </div>
+
       <h2 className={styles.Productheader}>{title}</h2>
-      <img src={imageUrl} alt={title} className={styles.Productimg} />
       <div>
         <p className={styles.Productprice}>
           Price:{" "}

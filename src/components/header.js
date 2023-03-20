@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { CartContext } from "../context/cart";
 
 function Nav() {
+  const { cart } = useContext(CartContext);
+
   return (
     <nav className="navbar">
       <ul>
@@ -13,9 +16,10 @@ function Nav() {
         </li>
         <li>
           <Link to="cart">
-            <button>
+            <div className="cartContainer">
               <img src="/cart.png" alt="" className="nav--img" />
-            </button>
+              <p className="cart-length">{cart.length}</p>
+            </div>
           </Link>
         </li>
       </ul>
