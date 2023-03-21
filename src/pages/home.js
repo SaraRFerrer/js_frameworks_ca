@@ -34,16 +34,18 @@ function Home() {
 
   return (
     <div>
-      <h1 className={styles.Homeheader}>All Products</h1>
-      <div className={styles.searchContainer}>
-        <input
-          className={styles.searchBar}
-          type="text"
-          placeholder="Search products..."
-          disabled={isLoading}
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-        />
+      <div className={styles.header}>
+        <h1 className={styles.Homeheader}>All Products</h1>
+        <div className={styles.searchContainer}>
+          <input
+            className={styles.searchBar}
+            type="text"
+            placeholder="Search products..."
+            disabled={isLoading}
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+        </div>
       </div>
       <div>
         {query.length > 0 ? (

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import styles from "../../styleModules/cart.module.css";
 
 function CartItem() {
-  const { cart, removeFromCart } = useContext(CartContext);
+  const { cart, removeFromCart, clearCart } = useContext(CartContext);
 
   function summeryCart(cart) {
     let total = 0;
@@ -55,7 +55,14 @@ function CartItem() {
         <p>{summeryCart(cart)}kr</p>
       </div>
       <Link to="/checkout">
-        <button className={styles.checkoutBtn}>Checkout</button>
+        <button
+          className={styles.checkoutBtn}
+          onClick={() => {
+            clearCart(cart);
+          }}
+        >
+          Checkout
+        </button>
       </Link>
     </div>
   );
