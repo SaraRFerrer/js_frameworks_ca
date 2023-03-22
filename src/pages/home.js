@@ -51,7 +51,9 @@ function Home() {
         {query.length > 0 ? (
           <Products products={query} isLoading={isLoading} isError={isError} />
         ) : (
-          <div>Nothing Found</div>
+          <div className={styles.nothing}>
+            <h2>Nothing Found</h2>
+          </div>
         )}
       </div>
     </div>

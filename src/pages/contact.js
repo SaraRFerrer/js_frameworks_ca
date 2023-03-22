@@ -2,6 +2,8 @@ import React from "react";
 import * as yup from "yup";
 import styles from "../styleModules/contact.module.css";
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const schema = yup.object().shape({
   fullName: yup.string().min(3).required("Enter your full name"),
@@ -11,6 +13,12 @@ const schema = yup.object().shape({
 });
 
 function Contact() {
+  const alert = () => {
+    toast.success("Your message has been sent !", {
+      position: toast.POSITION.TOP_RIGHT,
+    });
+  };
+
   const initialValues = { fullName: "", email: "", subject: "", message: "" };
 
   return (
@@ -91,9 +99,16 @@ function Contact() {
                   />
                 </div>
 
-                <button type="submit" className={styles.formBtn}>
+                <button
+                  type="submit"
+                  className={styles.formBtn}
+                  onClick={() => {
+                    alert();
+                  }}
+                >
                   Submit
                 </button>
+                <ToastContainer position="top-right" autoClose={5000} />
               </Form>
             </div>
           </div>
