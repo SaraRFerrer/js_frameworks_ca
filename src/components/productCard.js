@@ -23,7 +23,7 @@ function ProductCard({ product }) {
           Price:{" "}
           {price === discountedPrice
             ? ` ${price} kr`
-            : ` ${discountedPrice}, save kr ${price - discountedPrice} `}
+            : ` ${discountedPrice}, save kr ${price - discountedPrice}`}
         </p>
         <Link to={`product/${id}`} className={styles.Productlink}>
           View Product
