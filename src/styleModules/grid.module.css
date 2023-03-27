@@ -84,6 +84,10 @@
 
 .searchBar {
   width: 300px;
+  padding: 12px 24px;
+  border-radius: 6px;
+  color: #6b7280;
+  outline: none;
   border: 1px solid black;
   position: absolute;
   top: 70%;

@@ -18,7 +18,7 @@ label {
     text-align: left;
 }
 
-input {
+.input {
     width: 100%;
     padding: 12px 24px;
     border-radius: 6px;
@@ -28,8 +28,13 @@ input {
     
 }
 
-.message input {
+.message {
     padding: 60px 24px;
+    width:100%;
+    border-radius: 6px;
+    border: 1px solid #e0e0e0;
+    color: #6b7280;
+    outline: none;
     
 }
 

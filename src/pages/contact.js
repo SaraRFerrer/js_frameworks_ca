@@ -44,7 +44,8 @@ function Contact() {
                     type="text"
                     name="fullName"
                     placeholder="Enter your full name"
-                    defaultValue={values.fullName}
+                    value={values.fullName}
+                    readOnly={false}
                   />
                   <ErrorMessage
                     name="fullName"
@@ -60,7 +61,8 @@ function Contact() {
                     type="email"
                     name="email"
                     placeholder="Enter your Email"
-                    defaultValue={values.email}
+                    value={values.email}
+                    readOnly={false}
                   />
                   <ErrorMessage
                     name="email"
@@ -75,7 +77,8 @@ function Contact() {
                     type="text"
                     name="subject"
                     placeholder="Enter your full name"
-                    defaultValue={values.subject}
+                    value={values.subject}
+                    readOnly={false}
                   />
                   <ErrorMessage
                     name="subject"
@@ -90,7 +93,8 @@ function Contact() {
                     type="text"
                     name="message"
                     placeholder="Enter your full name"
-                    defaultValue={values.message}
+                    value={values.message}
+                    readOnly={false}
                   />
                   <ErrorMessage
                     name="message"

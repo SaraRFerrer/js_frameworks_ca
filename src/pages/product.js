@@ -9,9 +9,7 @@ import "react-toastify/dist/ReactToastify.css";
 function ProductPage() {
   const params = useParams();
   let url = `https://api.noroff.dev/api/v1/online-shop/`;
-  const { data, isLoading, isError, price, discountedPrice } = ApiHook(
-    url + params.id
-  );
+  const { data, isLoading, isError } = ApiHook(url + params.id);
 
   const { addToCart } = useContext(CartContext);
 
@@ -44,8 +42,10 @@ function ProductPage() {
         <p className={styles.price}>
           Price:{" "}
           {data.price === data.discountedPrice
-            ? `${data.price} kr `
-            : `kr ${data.discountedPrice},  ${price - discountedPrice} save kr`}
+            ? ` ${data.price} kr`
+            : ` ${data.discountedPrice}, save kr ${
+                data.price - data.discountedPrice
+              }`}
         </p>
       </div>
       <div className={styles.rating}>
