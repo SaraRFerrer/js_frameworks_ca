@@ -31,6 +31,7 @@ To install the project you need to:
 ```
 bash
 git clone https://github.com/SaraRFerrer/js_frameworks_ca.git
+```
 
 
 2. Install the dependencies:
